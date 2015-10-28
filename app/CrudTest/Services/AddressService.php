@@ -1,7 +1,7 @@
 <?php
 namespace App\CrudTest\Services;
 /**
-* 
+*
 */
 use \Validator;
 use App\CrudTest\Services\Contracts\AddressServiceInterface;
@@ -12,14 +12,14 @@ class AddressService implements AddressServiceInterface
 {
 	protected $address;
 	protected $client;
-	
-	public function __construct( AddressRepositoryInterface $address, 
-								 ClientRepositoryInterface  $client 
+
+	public function __construct( AddressRepositoryInterface $address,
+								 ClientRepositoryInterface  $client
 	) {
 		$this->address = $address;
 		$this->client  = $client;
 	}
-	
+
 	public function save(array $data, $clientId)
 	{
 		if ($validator = $this->validator($data)) {
@@ -37,7 +37,7 @@ class AddressService implements AddressServiceInterface
 			return $validator;
 		}
 
-		$address = $this->address->update($data, $id);
+		$this->address->update($data, $id);
 		return true;
 	}
 
@@ -52,7 +52,7 @@ class AddressService implements AddressServiceInterface
             'state'    => 'required|String|max:30',
             'country'  => 'required|String|max:30',
         ]);
-		
+
 		if ($validator->fails()) {
 			return $validator->errors()->all();
 		}
