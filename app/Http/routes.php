@@ -15,6 +15,10 @@
 Route::resource('/client', 'ClientCtrl');
 Route::resource('client.address', 'AddressCtrl');
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
 Route::get('/', function () {
     return redirect()->route('client.index');
 });

@@ -3,7 +3,7 @@
 
 @section('header')
 <div class="col-md-8">
-	<h1>Cliente <small>lista</small></h1>
+	<h1>Cliente</h1>
 </div>
 <div class="col-md-4 " style="
     padding: 31px;">
